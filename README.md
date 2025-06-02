@@ -1,1 +1,1 @@
-![Логотип](assetc/svg/SVG (3).svg)
+![Логотип](<assetc/svg/SVG (3).svg>)
