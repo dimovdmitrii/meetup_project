@@ -1,0 +1,75 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+header {
+  display: flex;
+}
+.search-container {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  width: fit-content;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-input,
+.location-input {
+  border: none;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-input {
+  border-right: 1px solid #ccc;
+  background-image: url(/assetc/svg/search-icon.svg);
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  padding-left: 36px;
+}
+
+.search-button {
+  background-color: #f15b5b;
+  color: white;
+  border: none;
+  padding: 0 8px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+button.language {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #000;
+  background: none;
+  border: none;
+}
+.login-link {
+  font-size: 14px;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+.signup-button {
+  background-color: #007f8b; /* бирюзовый */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
