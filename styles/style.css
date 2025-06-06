@@ -1,5 +1,4 @@
-/*=========================Header styles==================================*/
-* {
+=========================Header styles================================== * {
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
@@ -34,7 +33,7 @@ header {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   max-width: 560px;
   flex-shrink: 0;
-  /* margin-right: 455px; */
+
   flex: 0 1 600px;
 }
 
@@ -72,8 +71,6 @@ header {
   display: flex;
   align-items: center;
   gap: 16px;
-  /* margin-left: auto; */
-  /* padding-right: 50px; */
 }
 
 button.language {
@@ -120,7 +117,7 @@ button.language {
   }
 }
 
-@media (max-width: 291px) {
+@media (max-width: 293px) {
   header {
     flex-direction: column;
     align-items: stretch;
@@ -155,7 +152,6 @@ button.language {
     border-radius: 8px;
     border: 1px solid #ccc;
     box-shadow: none;
-    /* overflow: hidden; */
   }
 
   .search-input {
@@ -172,5 +168,69 @@ button.language {
   .search-button {
     padding: 0 16px;
     border-radius: 0 8px 8px 0;
+  }
+}
+/*----------------------------------End of Header styles------------------------*/
+/*----------------------------------Main Styles: Top section About---------------*/
+
+.about-text {
+  display: flex;
+  max-width: 600px;
+  min-height: 104px;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 160px;
+  margin-top: 98px;
+}
+.about-text h1 {
+  color: #212121;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 52px;
+  margin-bottom: 24px;
+}
+.about-text p {
+  color: #212121;
+  font-size: 16px;
+  font-weight: 400;
+  vertical-align: middle;
+  margin-bottom: 32px;
+}
+.about-text button {
+  max-width: 125px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  border: transparent;
+  cursor: pointer;
+  background-color: #007f8b;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 3px 30px #494949;
+}
+.top-about {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1196px;
+  max-height: 461px;
+}
+@media (max-width: 393px) {
+  .about-text {
+    margin-left: 0;
+    padding: 16px;
+  }
+  .about-text button {
+    display: none;
+  }
+  .top-about {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+  }
+  .top-image {
+    margin-top: 90px;
   }
 }
