@@ -179,18 +179,17 @@ button.language {
 
 .about-text {
   display: flex;
-  max-width: 600px;
+  max-width: 700px;
   min-height: 104px;
   flex-direction: column;
   justify-content: center;
-  margin-left: 160px;
-  margin-top: 98px;
+  padding-left: 140px;
+  padding-top: 98px;
 }
 .about-text h1 {
   color: #212121;
   font-size: 42px;
   font-weight: 700;
-  line-height: 52px;
   margin-bottom: 24px;
 }
 .about-text p {
@@ -218,7 +217,6 @@ button.language {
   align-items: center;
   justify-content: space-between;
   max-width: 1196px;
-  max-height: 461px;
 }
 @media (max-width: 392px) {
   .about-text {
@@ -226,22 +224,24 @@ button.language {
     padding: 16px;
   }
   .about-text h1 {
-    width: 352px;
     font-size: 25px;
     font-weight: 700;
     line-height: 30px;
   }
+  .about-text p {
+    font-size: 12px;
+    line-height: 25px;
+    margin-bottom: 2px;
+  }
+
   .about-text button {
     display: none;
   }
   .top-about {
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
   }
-  .top-image {
-    margin-top: 90px;
-  }
+
   .top-image img {
     width: 215px;
   }
@@ -262,7 +262,49 @@ button.language {
   .about-text button {
     display: none;
   }
-  .top-image {
-    margin-top: 50px;
-  }
 }
+/*---------------------------End Top- about---------------*/
+/*--------------------------Events-near---------------------*/
+.events-location-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 140px;
+  padding-top: 126px;
+}
+
+.events-near-text {
+  color: #212121;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.location-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(151, 202, 209, 0.12);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+}
+
+.location-link:hover {
+  background-color: #d1e5e7;
+}
+
+.location-name {
+  color: rgba(0, 121, 138, 1);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.edit-icon {
+  width: 18px;
+  height: 18px;
+  color: rgba(0, 121, 138, 1);
+}
+/*-------------------------------Cards Events Near--------------------------*/
