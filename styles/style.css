@@ -169,6 +169,9 @@ button.language {
     padding: 0 16px;
     border-radius: 0 8px 8px 0;
   }
+  .signup-button {
+    width: 81px;
+  }
 }
 /*----------------------------------End of Header styles------------------------*/
 /*----------------------------------Main Styles: Top section About---------------*/
@@ -208,7 +211,6 @@ button.language {
   color: white;
   position: relative;
   overflow: hidden;
-  box-shadow: 0px 3px 30px #494949;
 }
 .top-about {
   display: flex;
@@ -217,10 +219,16 @@ button.language {
   max-width: 1196px;
   max-height: 461px;
 }
-@media (max-width: 393px) {
+@media (max-width: 392px) {
   .about-text {
     margin-left: 0;
     padding: 16px;
+  }
+  .about-text h1 {
+    width: 352px;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 30px;
   }
   .about-text button {
     display: none;
@@ -232,5 +240,28 @@ button.language {
   }
   .top-image {
     margin-top: 90px;
+  }
+  .top-image img {
+    width: 215px;
+  }
+}
+@media (max-width: 680px) {
+  .about-text {
+    margin-left: 0;
+    padding: 16px;
+  }
+  .top-about {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+  }
+  .about-text button {
+    display: none;
+  }
+  .about-text button {
+    display: none;
+  }
+  .top-image {
+    margin-top: 50px;
   }
 }
