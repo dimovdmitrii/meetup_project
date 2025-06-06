@@ -1,16 +1,41 @@
+/*=========================Header styles==================================*/
 * {
   font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 header {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1512px;
+  margin: 0 auto;
+  padding: 24px;
+  position: relative;
 }
+
+.logo {
+  height: 40px;
+}
+
+.logo-container {
+  display: flex;
+  gap: 40px;
+}
+
 .search-container {
+  position: relative;
   display: flex;
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
-  width: fit-content;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 560px;
+  flex-shrink: 0;
+  /* margin-right: 455px; */
+  flex: 0 1 600px;
 }
 
 .search-input,
@@ -19,6 +44,8 @@ header {
   padding: 10px 12px;
   font-size: 14px;
   outline: none;
+  flex: 1;
+  min-width: 160px;
 }
 
 .search-input {
@@ -40,36 +67,110 @@ header {
   align-items: center;
   justify-content: center;
 }
+
 .header-right {
   display: flex;
   align-items: center;
   gap: 16px;
+  /* margin-left: auto; */
+  /* padding-right: 50px; */
 }
+
 button.language {
   background: none;
   border: none;
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 10px;
   cursor: pointer;
   font-size: 14px;
   color: #000;
   background: none;
   border: none;
 }
+
 .login-link {
   font-size: 14px;
   text-decoration: none;
   color: #000;
   cursor: pointer;
 }
+
 .signup-button {
-  background-color: #007f8b; /* бирюзовый */
+  background-color: #007f8b;
   color: white;
   border: none;
   padding: 8px 16px;
   font-size: 14px;
   border-radius: 8px;
   cursor: pointer;
+}
+
+@media (max-width: 864px) {
+  .location-input {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .search-container {
+    position: absolute;
+    top: 80px;
+    width: calc(100% - 48px);
+  }
+}
+
+@media (max-width: 291px) {
+  header {
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .logo {
+    margin: 0;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .search-container {
+    flex-direction: row;
+    width: 100%;
+
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: none;
+    /* overflow: hidden; */
+  }
+
+  .search-input {
+    flex: 1;
+    border-right: none;
+    padding-left: 36px;
+    background-position: 10px center;
+  }
+
+  .location-input {
+    display: none;
+  }
+
+  .search-button {
+    padding: 0 16px;
+    border-radius: 0 8px 8px 0;
+  }
 }
