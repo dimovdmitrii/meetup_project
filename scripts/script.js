@@ -3,6 +3,77 @@ git add .
 git commit -m "Сообщение"
 git push
  */
+document.addEventListener("DOMContentLoaded", () => {
+  const showMoreButton = document.querySelector(".show-more-button");
+  const eventsGrid = document.querySelector(".events-grid");
+  const eventsCards = eventsGrid
+    ? eventsGrid.querySelectorAll(".events-cards")
+    : [];
+  const numInitialVisible = 3; // Количество карточек, которые должны быть видны изначально
+
+  // Функция для применения или отмены мобильных стилей
+  const applyMobileStyles = () => {
+    // Проверяем, соответствует ли текущая ширина экрана медиазапросу (max-width: 392px)
+    if (window.matchMedia("(max-width: 392px)").matches) {
+      // Если карточек больше, чем нужно показывать изначально
+      if (eventsCards.length > numInitialVisible) {
+        // Скрываем все карточки, начиная с numInitialVisible-й
+        for (let i = numInitialVisible; i < eventsCards.length; i++) {
+          eventsCards[i].style.display = "none";
+        }
+        // Показываем кнопку "Показать больше" и устанавливаем её текст
+        showMoreButton.style.display = "block";
+        showMoreButton.textContent = "Show more";
+        showMoreButton.dataset.state = "hidden"; // Устанавливаем состояние "скрыто"
+      } else {
+        // Если карточек 3 или меньше, скрываем кнопку
+        showMoreButton.style.display = "none";
+      }
+      // Убедимся, что первые numInitialVisible карточки отображаются как flex (для мобильных)
+      for (
+        let i = 0;
+        i < Math.min(numInitialVisible, eventsCards.length);
+        i++
+      ) {
+        eventsCards[i].style.display = "flex";
+      }
+    } else {
+      // Если экран не мобильный, показываем все карточки и скрываем кнопку
+      eventsCards.forEach((card) => {
+        card.style.display = ""; // Сбрасываем display, чтобы CSS grid мог работать
+      });
+      showMoreButton.style.display = "none";
+    }
+  };
+
+  // Вызываем функцию при загрузке страницы
+  applyMobileStyles();
+
+  // Добавляем слушатель события изменения размера окна
+  window.addEventListener("resize", applyMobileStyles);
+
+  // Добавляем обработчик клика на кнопку "Показать/Свернуть"
+  if (showMoreButton) {
+    showMoreButton.addEventListener("click", () => {
+      if (showMoreButton.dataset.state === "hidden") {
+        // Если сейчас скрыто, показываем все карточки
+        for (let i = numInitialVisible; i < eventsCards.length; i++) {
+          eventsCards[i].style.display = "flex"; // Устанавливаем display: flex для скрытых элементов
+        }
+        showMoreButton.textContent = "Hidden"; // Меняем текст кнопки
+        showMoreButton.dataset.state = "visible"; // Устанавливаем состояние "видимо"
+      } else {
+        // Если сейчас видимо, скрываем лишние карточки
+        for (let i = numInitialVisible; i < eventsCards.length; i++) {
+          eventsCards[i].style.display = "none"; // Скрываем элементы
+        }
+        showMoreButton.textContent = "Show more"; // Меняем текст кнопки обратно
+        showMoreButton.dataset.state = "hidden"; // Устанавливаем состояние "скрыто"
+      }
+    });
+  }
+});
+
 const eventsStore = [
   {
     title: "INFJ Personality Type - Coffee Shop Meet & Greet",

@@ -1,7 +1,7 @@
 /*=========================Header styles================================== */
 main {
-  max-width: 1512px; /* Ограничиваем максимальную ширину для всего основного контента */
-  margin: 0 auto; /* Центрируем основной контент */
+  max-width: 1512px;
+  margin: 0 auto;
 }
 
 * {
@@ -322,36 +322,29 @@ button.language {
   color: rgba(0, 121, 138, 1);
 }
 .see-all-events {
-  display: none; /* ПО УМОЛЧАНИЮ СКРЫВАЕМ НА ВСЕХ ЭКРАНАХ */
+  display: none;
 }
 .see-all-events a {
-  /* Стили для ссылки "See all events" */
   color: rgba(0, 121, 138, 1);
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
 }
-
 .see-all-events a:hover {
   text-decoration: underline;
 }
-/* Медиа-запросы */
 
-/* Этот медиа-запрос покажет "See all events" только на экранах шире 680px */
 @media (min-width: 760px) {
   .see-all-events {
-    display: block; /* Показываем блок "See all events" */
+    display: block;
   }
 }
 
 @media (max-width: 680px) {
   .events-near {
-    padding-left: 15px; /* Адаптивные отступы для узких экранов */
+    padding-left: 15px;
     padding-right: 15px;
     padding-top: 25px;
-  }
-  /* Дополнительные стили, если нужны для .events-location-container на узких экранах */
-  .events-location-container {
   }
 }
 
@@ -386,6 +379,16 @@ button.language {
     grid-template-rows: repeat(4, auto); /* 2 строки */
   }
 }
+@media (max-width: 393px) {
+  .events-grid {
+    display: flex;
+    flex-direction: column;
+    /* grid-template-columns: repeat(1, 1fr); 
+    grid-template-rows: repeat(1, auto);  */
+    max-width: 370px;
+    width: 100%;
+  }
+}
 /*-------------------------<div class="events-cards">----------------------------*/
 .cards-info {
   padding: 12px 0 20px 0;
@@ -394,7 +397,7 @@ button.language {
   max-width: 235px;
   font-size: 20px;
   font-weight: 600;
-  line-height: 24px;
+  /* line-height: 24px; */
   margin-bottom: 8px;
   display: flex;
   width: 235px;
@@ -431,4 +434,97 @@ button.language {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
+}
+@media (max-width: 392px) {
+  .events-cards img {
+    max-width: 98px;
+    max-height: 55px;
+  }
+  .events-grid {
+    gap: 30px;
+  }
+  .events-cards {
+    display: flex;
+    gap: 8px;
+    padding-top: 10px;
+    border-top: 0.613px solid #d9d9d9;
+  }
+  .cards-info {
+    display: none;
+  }
+
+  .date-mob {
+    font-size: 9px;
+    color: #7c6f50;
+    font-weight: 500;
+    line-height: 13px;
+    text-transform: uppercase;
+  }
+  #h3-mob {
+    max-width: 246px;
+    max-height: 15px;
+    color: #212121;
+    font-size: 10px;
+    font-weight: 500;
+    margin-bottom: 2px;
+  }
+  #p-mob {
+    width: 155px;
+    height: 12;
+    padding: 0 0 4px 0;
+    color: #707070;
+    font-size: 9px;
+    font-weight: 400;
+    line-height: 11px;
+  }
+  .online-mob {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .online-mob img {
+    width: 10px;
+    height: 10px;
+  }
+  #span-mob {
+    color: #707070;
+    font-size: 8px;
+    font-weight: 500;
+    line-height: 8px;
+  }
+}
+@media (min-width: 393px) {
+  .cards-info-mob {
+    display: none;
+  }
+}
+@media (max-width: 392px) {
+  /* ... (ваш существующий код для @media (max-width: 392px)) ... */
+
+  .events-grid .events-cards:nth-child(n + 4) {
+    display: none; /* Изначально скрываем карточки, начиная с четвертой */
+  }
+
+  .show-more-button {
+    display: block; /* Показываем кнопку только на мобильных */
+    margin: 20px auto; /* Центрируем кнопку */
+    padding: 8px 20px;
+    color: rgba(0, 121, 138, 1);
+    background-color: rgba(151, 202, 209, 0.12);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    text-align: center;
+    width: fit-content;
+  }
+}
+
+@media (min-width: 393px) {
+  .cards-info-mob {
+    display: none;
+  }
+  .show-more-button {
+    display: none; /* Скрываем кнопку на больших экранах */
+  }
 }
