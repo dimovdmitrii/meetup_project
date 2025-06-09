@@ -599,6 +599,10 @@ button.language {
 .explore-header {
   padding: 64px 0 0 140px;
 }
+.explore-header h2 {
+  font-size: 28px;
+  font-weight: 600;
+}
 .grid-category {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
@@ -643,5 +647,85 @@ button.language {
   .explore-header {
     padding-left: 15px;
     padding-top: 16px;
+  }
+  .explore-header h2 {
+    font-size: 20px;
+  }
+}
+/*---------------End explore top---------------------------------------*/
+/*----------------Popular cities---------------------------------------*/
+.popular-cities-header {
+  padding-left: 140px;
+}
+.popular-cities-header h2 {
+  font-size: 28px;
+  font-weight: 600;
+}
+.popular-cities-header p {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(112, 112, 112, 1);
+  padding: 16px 0 16px 0;
+}
+.popular-cities-container {
+  padding: 0 140px 124px 140px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1512px;
+  width: 100%;
+}
+.popular-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+.popular-cities-container h3 {
+  font-size: 15px;
+  font-weight: 600;
+}
+@media (max-width: 393px) {
+  .popular-cities-header {
+    padding: 16px 0 0 20px;
+  }
+  .popular-cities-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .popular-cities-header p {
+    font-size: 12px;
+    font-weight: 400;
+    text-align: left;
+    max-width: 350px;
+    line-height: 24px;
+    padding-bottom: 0px;
+  }
+  .popular-cities-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
+    padding: 0px 30px 44px 25px;
+  }
+  .popular-cities-container img {
+    max-width: 153px;
+    max-height: 153px;
+  }
+  #miami {
+    display: none;
+  }
+}
+@media (max-width: 690px) {
+  .popular-cities-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
+  }
+  .popular-cities-container img {
+    max-width: 153px;
+    max-height: 153px;
   }
 }
