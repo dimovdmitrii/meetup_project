@@ -803,3 +803,55 @@ button.language {
     flex-wrap: wrap;
   }
 }
+/*--------------------End of how Meetup work----------------------------*/
+/*--------------------Friendship Section---------------------------------*/
+.friendships-header {
+}
+.friendships-container {
+  display: flex;
+  gap: 32px;
+  padding: 0 140px 124px 140px;
+  justify-content: space-between;
+  max-width: 1512px;
+  width: 100%;
+}
+.friendships-cards {
+  display: flex;
+  flex-direction: column;
+  max-width: 376px;
+  width: 100%;
+}
+.friendships-cards h3 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  padding: 24px 64px 12px 0;
+}
+.friendships-cards p {
+  color: #707070;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  padding: 0 5px 16px 0;
+}
+.friendships-cards a {
+  color: #00798a;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+}
+@media (max-width: 1100px) {
+  .friendships-container {
+    flex-wrap: wrap;
+  }
+  .friendships-cards p {
+  }
+}
+@media (max-width: 690px) {
+  .friendships-container {
+    padding: 0px 15px 44px 15px;
+  }
+  #friendship-header {
+    padding: 0px 15px 44px 15px;
+  }
+}
