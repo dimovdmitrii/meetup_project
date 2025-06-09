@@ -594,3 +594,54 @@ button.language {
     margin: 0 auto;
   }
 }
+/*------------------End of Join Meetup Hands Section-------------------*/
+/*------------------Explore top categories-----------------------------*/
+.explore-header {
+  padding: 64px 0 0 140px;
+}
+.grid-category {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 16px;
+  padding: 0px 140px 64px 140px;
+  max-width: 1512px;
+  width: 100%;
+}
+.grid-category p {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  color: rgba(33, 33, 33, 1);
+}
+.category-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 22px 28px 16px 28px;
+  max-width: 146px;
+  border-radius: 8px;
+  background: rgba(151, 202, 209, 0.08);
+}
+@media (max-width: 1096px) {
+  .grid-category {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 680px) {
+  .grid-category {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0px 15px 44px 15px;
+  }
+}
+@media (max-width: 393px) {
+  .grid-category {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0px 30px 44px 25px;
+  }
+  .explore-header {
+    padding-left: 15px;
+    padding-top: 16px;
+  }
+}
