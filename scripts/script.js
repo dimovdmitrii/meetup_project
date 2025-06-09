@@ -5,75 +5,84 @@ git push
  */
 // В файле: scripts/script.js
 
+// В файле: scripts/script.js
+
 document.addEventListener("DOMContentLoaded", () => {
-  const showMoreButton = document.querySelector(".show-more-button");
-  const eventsGrid = document.querySelector(".events-grid");
-  const eventsCards = eventsGrid
-    ? eventsGrid.querySelectorAll(".events-cards")
-    : [];
+  // Теперь выбираем все кнопки "Show More" и все сетки событий
+  const allShowMoreButtons = document.querySelectorAll(".show-more-button");
+  // Вместо выбора одной сетки, выбираем все
+  const allEventsGrids = document.querySelectorAll(".events-grid");
+
   const numInitialVisible = 3; // Количество карточек, которые должны быть видны изначально
 
   const applyMobileStyles = () => {
     if (window.matchMedia("(max-width: 393px)").matches) {
-      if (eventsCards.length > numInitialVisible) {
-        for (let i = numInitialVisible; i < eventsCards.length; i++) {
-          eventsCards[i].style.display = "none";
+      // Проходимся по каждой паре: сетка событий и соответствующая кнопка
+      allEventsGrids.forEach((eventsGrid, index) => {
+        const eventsCards = eventsGrid.querySelectorAll(".events-cards");
+        const showMoreButton = allShowMoreButtons[index]; // Соответствующая кнопка
+
+        if (!showMoreButton) return; // Если кнопки нет (например, на больших экранах), пропускаем
+
+        if (eventsCards.length > numInitialVisible) {
+          for (let i = numInitialVisible; i < eventsCards.length; i++) {
+            eventsCards[i].style.display = "none";
+          }
+          showMoreButton.style.display = "block";
+          showMoreButton.textContent = "See More";
+          showMoreButton.dataset.state = "hidden";
+        } else {
+          showMoreButton.style.display = "none";
         }
-        showMoreButton.style.display = "block";
-        // Измените эту строку:
-        showMoreButton.textContent = "Show more";
-        // На эту:
-        showMoreButton.textContent =
-          "See More"; /* Изменяем текст по умолчанию на "See More" */
-        showMoreButton.dataset.state = "hidden";
-      } else {
-        showMoreButton.style.display = "none";
-      }
-      for (
-        let i = 0;
-        i < Math.min(numInitialVisible, eventsCards.length);
-        i++
-      ) {
-        eventsCards[i].style.display = "flex";
-      }
-    } else {
-      eventsCards.forEach((card) => {
-        card.style.display = "";
+        for (
+          let i = 0;
+          i < Math.min(numInitialVisible, eventsCards.length);
+          i++
+        ) {
+          eventsCards[i].style.display = "flex";
+        }
       });
-      showMoreButton.style.display = "none";
+    } else {
+      // На больших экранах, убеждаемся, что все карточки видны, и кнопки скрыты
+      allEventsGrids.forEach((eventsGrid) => {
+        eventsGrid.querySelectorAll(".events-cards").forEach((card) => {
+          card.style.display = ""; // Сбрасываем display
+        });
+      });
+      allShowMoreButtons.forEach((button) => {
+        button.style.display = "none";
+      });
     }
   };
 
   applyMobileStyles();
   window.addEventListener("resize", applyMobileStyles);
 
-  if (showMoreButton) {
+  // Добавляем обработчики событий для каждой кнопки
+  allShowMoreButtons.forEach((showMoreButton, index) => {
+    // Получаем соответствующую сетку событий для этой кнопки
+    const eventsGrid = allEventsGrids[index];
+    if (!eventsGrid) return; // Если сетки нет, пропускаем
+
+    const eventsCards = eventsGrid.querySelectorAll(".events-cards");
+
     showMoreButton.addEventListener("click", (event) => {
-      /* Добавляем event в параметры */
-      event.preventDefault(); /* Добавляем это, чтобы ссылка не перезагружала страницу */
+      event.preventDefault();
       if (showMoreButton.dataset.state === "hidden") {
         for (let i = numInitialVisible; i < eventsCards.length; i++) {
           eventsCards[i].style.display = "flex";
         }
-        // Измените эту строку:
-        showMoreButton.textContent =
-          "Hidden"; /* Изменяем текст кнопки на "Hidden" */
-        // На эту:
         showMoreButton.textContent = "Hidden";
         showMoreButton.dataset.state = "visible";
       } else {
         for (let i = numInitialVisible; i < eventsCards.length; i++) {
           eventsCards[i].style.display = "none";
         }
-        // Измените эту строку:
-        showMoreButton.textContent = "Show more";
-        // На эту:
-        showMoreButton.textContent =
-          "See More"; /* Изменяем текст кнопки обратно на "See More" */
+        showMoreButton.textContent = "See More";
         showMoreButton.dataset.state = "hidden";
       }
     });
-  }
+  });
 });
 
 const eventsStore = [
