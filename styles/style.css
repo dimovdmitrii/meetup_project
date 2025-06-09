@@ -271,15 +271,16 @@ button.language {
 /*---------------------------End Top- about---------------*/
 /*--------------------------Events-near---------------------*/
 .events-near {
-  max-width: 1196px; /* Задаем максимальную ширину, как у .top-about */
-  margin: 0 auto; /* Центрируем блок на странице */
-  padding: 126px 24px 0;
+  padding-left: 140px;
+  padding-right: 140px;
+  padding-top: 126px;
 }
 .events-near-header {
   display: flex; /* Делаем контейнер flexbox */
   justify-content: space-between; /* Располагаем дочерние элементы по краям */
   align-items: center; /* Выравниваем элементы по центру по вертикали */
   margin-bottom: 24px;
+  max-width: 1196px;
 }
 .events-location-container {
   display: flex;
@@ -342,7 +343,9 @@ button.language {
 
 @media (max-width: 680px) {
   .events-near {
-    padding: 25px 15px 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 25px;
   }
 }
 
