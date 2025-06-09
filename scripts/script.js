@@ -1,8 +1,10 @@
 /*
-git add .  
+git add .
 git commit -m "Сообщение"
 git push
  */
+// В файле: scripts/script.js
+
 document.addEventListener("DOMContentLoaded", () => {
   const showMoreButton = document.querySelector(".show-more-button");
   const eventsGrid = document.querySelector(".events-grid");
@@ -11,25 +13,22 @@ document.addEventListener("DOMContentLoaded", () => {
     : [];
   const numInitialVisible = 3; // Количество карточек, которые должны быть видны изначально
 
-  // Функция для применения или отмены мобильных стилей
   const applyMobileStyles = () => {
-    // Проверяем, соответствует ли текущая ширина экрана медиазапросу (max-width: 392px)
-    if (window.matchMedia("(max-width: 392px)").matches) {
-      // Если карточек больше, чем нужно показывать изначально
+    if (window.matchMedia("(max-width: 393px)").matches) {
       if (eventsCards.length > numInitialVisible) {
-        // Скрываем все карточки, начиная с numInitialVisible-й
         for (let i = numInitialVisible; i < eventsCards.length; i++) {
           eventsCards[i].style.display = "none";
         }
-        // Показываем кнопку "Показать больше" и устанавливаем её текст
         showMoreButton.style.display = "block";
+        // Измените эту строку:
         showMoreButton.textContent = "Show more";
-        showMoreButton.dataset.state = "hidden"; // Устанавливаем состояние "скрыто"
+        // На эту:
+        showMoreButton.textContent =
+          "See More"; /* Изменяем текст по умолчанию на "See More" */
+        showMoreButton.dataset.state = "hidden";
       } else {
-        // Если карточек 3 или меньше, скрываем кнопку
         showMoreButton.style.display = "none";
       }
-      // Убедимся, что первые numInitialVisible карточки отображаются как flex (для мобильных)
       for (
         let i = 0;
         i < Math.min(numInitialVisible, eventsCards.length);
@@ -38,37 +37,40 @@ document.addEventListener("DOMContentLoaded", () => {
         eventsCards[i].style.display = "flex";
       }
     } else {
-      // Если экран не мобильный, показываем все карточки и скрываем кнопку
       eventsCards.forEach((card) => {
-        card.style.display = ""; // Сбрасываем display, чтобы CSS grid мог работать
+        card.style.display = "";
       });
       showMoreButton.style.display = "none";
     }
   };
 
-  // Вызываем функцию при загрузке страницы
   applyMobileStyles();
-
-  // Добавляем слушатель события изменения размера окна
   window.addEventListener("resize", applyMobileStyles);
 
-  // Добавляем обработчик клика на кнопку "Показать/Свернуть"
   if (showMoreButton) {
-    showMoreButton.addEventListener("click", () => {
+    showMoreButton.addEventListener("click", (event) => {
+      /* Добавляем event в параметры */
+      event.preventDefault(); /* Добавляем это, чтобы ссылка не перезагружала страницу */
       if (showMoreButton.dataset.state === "hidden") {
-        // Если сейчас скрыто, показываем все карточки
         for (let i = numInitialVisible; i < eventsCards.length; i++) {
-          eventsCards[i].style.display = "flex"; // Устанавливаем display: flex для скрытых элементов
+          eventsCards[i].style.display = "flex";
         }
-        showMoreButton.textContent = "Hidden"; // Меняем текст кнопки
-        showMoreButton.dataset.state = "visible"; // Устанавливаем состояние "видимо"
+        // Измените эту строку:
+        showMoreButton.textContent =
+          "Hidden"; /* Изменяем текст кнопки на "Hidden" */
+        // На эту:
+        showMoreButton.textContent = "Hidden";
+        showMoreButton.dataset.state = "visible";
       } else {
-        // Если сейчас видимо, скрываем лишние карточки
         for (let i = numInitialVisible; i < eventsCards.length; i++) {
-          eventsCards[i].style.display = "none"; // Скрываем элементы
+          eventsCards[i].style.display = "none";
         }
-        showMoreButton.textContent = "Show more"; // Меняем текст кнопки обратно
-        showMoreButton.dataset.state = "hidden"; // Устанавливаем состояние "скрыто"
+        // Измените эту строку:
+        showMoreButton.textContent = "Show more";
+        // На эту:
+        showMoreButton.textContent =
+          "See More"; /* Изменяем текст кнопки обратно на "See More" */
+        showMoreButton.dataset.state = "hidden";
       }
     });
   }

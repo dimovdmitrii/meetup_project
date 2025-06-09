@@ -223,7 +223,7 @@ button.language {
   justify-content: space-between;
   max-width: 1196px;
 }
-@media (max-width: 392px) {
+@media (max-width: 393px) {
   .about-text {
     margin-left: 0;
     padding: 16px;
@@ -271,9 +271,9 @@ button.language {
 /*---------------------------End Top- about---------------*/
 /*--------------------------Events-near---------------------*/
 .events-near {
-  padding-left: 140px;
-  padding-right: 140px;
-  padding-top: 126px;
+  max-width: 1196px; /* Задаем максимальную ширину, как у .top-about */
+  margin: 0 auto; /* Центрируем блок на странице */
+  padding: 126px 24px 0;
 }
 .events-near-header {
   display: flex; /* Делаем контейнер flexbox */
@@ -342,9 +342,7 @@ button.language {
 
 @media (max-width: 680px) {
   .events-near {
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 25px;
+    padding: 25px 15px 0;
   }
 }
 
@@ -364,8 +362,9 @@ button.language {
 /*-------------------------------Cards Events Grid Container-----------------*/
 .events-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 колонки */
-  grid-template-rows: repeat(2, auto); /* 2 строки */
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 20px;
 }
 @media (max-width: 1096px) {
   .events-grid {
@@ -435,7 +434,7 @@ button.language {
   font-weight: 400;
   line-height: 20px;
 }
-@media (max-width: 392px) {
+@media (max-width: 393px) {
   .events-cards img {
     max-width: 98px;
     max-height: 55px;
@@ -498,19 +497,22 @@ button.language {
     display: none;
   }
 }
-@media (max-width: 392px) {
-  /* ... (ваш существующий код для @media (max-width: 392px)) ... */
+@media (max-width: 393px) {
+  .cards-info-mob {
+    /* Эта строка, возможно, отсутствует или имеет другое значение,
+       убедитесь, что она установлена в `display: flex;` */
+    display: flex; /* Добавьте или измените эту строку */
+    flex-direction: column;
+  }
 
   .events-grid .events-cards:nth-child(n + 4) {
     display: none; /* Изначально скрываем карточки, начиная с четвертой */
   }
 
   .show-more-button {
-    display: block; /* Показываем кнопку только на мобильных */
-    margin: 20px auto; /* Центрируем кнопку */
-    padding: 8px 20px;
+    display: block;
+    margin: 20px auto;
     color: rgba(0, 121, 138, 1);
-    background-color: rgba(151, 202, 209, 0.12);
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -520,7 +522,7 @@ button.language {
   }
 }
 
-@media (min-width: 393px) {
+@media (min-width: 394px) {
   .cards-info-mob {
     display: none;
   }
