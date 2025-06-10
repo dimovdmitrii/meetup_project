@@ -10,12 +10,24 @@
       href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sixtyfour&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoCcTcjItT1fGBZpI+t84xRzbeTpC+mixkfsVDZWZ"
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
     <title>Document</title>
   </head>
   <body>
     <header>
       <div class="logo-container">
-        <img src="./assetc/svg/main-logo.svg" alt="Logo" class="logo" />
+        <img
+          id="main-logo"
+          src="./assetc/svg/main-logo.svg"
+          alt="Logo"
+          class="logo"
+        />
         <form class="search-container">
           <input
             type="search"
@@ -54,27 +66,21 @@
             <button class="dropdown-button" id="type-dropdown-button">
               Any type <span class="arrow-down"></span>
             </button>
-            <ul class="dropdown-content" id="type-dropdown-content">
-              <li><a href="#" data-value="all">Any type</a></li>
-            </ul>
+            <ul class="dropdown-content" id="type-dropdown-content"></ul>
           </div>
 
           <div class="filter-dropdown">
             <button class="dropdown-button" id="distance-dropdown-button">
               Any distance <span class="arrow-down"></span>
             </button>
-            <ul class="dropdown-content" id="distance-dropdown-content">
-              <li><a href="#" data-value="all">Any distance</a></li>
-            </ul>
+            <ul class="dropdown-content" id="distance-dropdown-content"></ul>
           </div>
 
           <div class="filter-dropdown">
             <button class="dropdown-button" id="category-dropdown-button">
               Any category <span class="arrow-down"></span>
             </button>
-            <ul class="dropdown-content" id="category-dropdown-content">
-              <li><a href="#" data-value="all">Any category</a></li>
-            </ul>
+            <ul class="dropdown-content" id="category-dropdown-content"></ul>
           </div>
         </div>
       </section>
@@ -86,6 +92,7 @@
           <p>Find events near</p>
           <h2>New York, NY</h2>
         </div>
+        <!-- <div class="map-placeholder" id="map"></div> -->
         <div class="map-placeholder">
           <img src="./assetc/png/map-thumbnail.png.png" alt="Expand map" />
           <button class="close-map-btn">
@@ -249,5 +256,11 @@
       </div>
     </footer>
   </body>
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20n6qqzJrZroK3fLD2wZvdqR3gsgJz4Sj/Y+YF/sLw="
+    crossorigin=""
+  ></script>
+  <script src="script.js"></script>
   <script src="./scripts/script.js"></script>
 </html>
