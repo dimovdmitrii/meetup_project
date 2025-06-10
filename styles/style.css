@@ -1108,7 +1108,7 @@ footer a:hover {
   .footer-main,
   .footer-links,
   .footer-bottom {
-    padding: 25px 25px;
+    padding: 15px 15px;
   }
   .footer-header {
     align-items: end;
@@ -1142,7 +1142,7 @@ footer a:hover {
 /*---------------------Section-events-section------------------------------*/
 .events-section {
   padding: 20px;
-  max-width: 1200px;
+  max-width: 1196px;
   margin: 0 auto;
 }
 
@@ -1282,5 +1282,308 @@ footer a:hover {
     padding: 50px 5px 20px 5px;
     max-width: 1200px;
     margin: 0 auto;
+  }
+}
+/*------------------------------Section-Events-List---------------------*/
+
+/*------------------------------Section-Events-List---------------------*/
+
+/* Общие стили для контейнера списка событий */
+.events-list {
+  padding: 20px;
+  max-width: 1196px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Стили для каждой карточки события */
+.events-list-card {
+  max-width: 604px;
+  width: 100%;
+  padding-top: 16px;
+  padding-bottom: 55px; /* Этот паддинг будет для всей карточки, а не только infoDiv */
+  border-top: 1px solid #d9d9d9;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Стили для изображения в карточке */
+.events-list-card img {
+  width: 159px;
+  height: 90px;
+  border-radius: 8px;
+}
+
+/* Основной информационный блок карточки */
+.list-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* Отступы между элементами в колонке */
+  align-items: start;
+  position: relative; /* Оставляем relative, если будут абсолютно позиционированные элементы */
+  height: 100%; /* Убедимся, что infoDiv занимает всю доступную высоту */
+}
+
+/* Стили для даты */
+.date-card {
+  color: #7c6f50;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.35px;
+  text-transform: uppercase;
+}
+
+/* Стили для заголовка */
+.title {
+  color: #212121;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+/* Стили для категории */
+.category {
+  color: #707070;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+/* ----------------------------------------------------- */
+/* ПРАВИЛА ДЛЯ ДЕСКТОПНЫХ ЭКРАНОВ (>= 680px) */
+/* Online Event: Скрыт, attendees-and-spots-info: Отображается */
+/* ----------------------------------------------------- */
+@media (min-width: 680px) {
+  .online-event-block {
+    display: none; /* Скрываем Online Event на десктопах */
+  }
+
+  .attendees-and-spots-info {
+    display: block; /* Показываем attendees-and-spots-info на десктопах */
+    color: #707070;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    margin-top: 4px; /* Отступ от предыдущего элемента (категории) */
+    position: static; /* Возвращаем в обычный поток */
+    bottom: auto;
+    left: auto;
+    width: auto;
+  }
+
+  .attendees-and-spots-info .spots-left {
+    color: #f00;
+    font-weight: bold;
+  }
+}
+
+/* ----------------------------------------------------- */
+/* ПРАВИЛА ДЛЯ МОБИЛЬНЫХ ЭКРАНОВ (< 680px) */
+/* Online Event: Отображается под категорией, attendees-and-spots-info: Скрыт */
+/* ----------------------------------------------------- */
+@media (max-width: 679px) {
+  .online-event-block {
+    display: flex; /* Показываем Online Event на мобильных */
+    align-items: center;
+    gap: 4px;
+    margin-top: 4px; /* Отступ от предыдущего элемента (категории) на мобильных */
+  }
+
+  .online-event-block .online-event-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  .online-event-block .online-event-text {
+    color: #707070;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+  }
+
+  .attendees-and-spots-info {
+    display: none; /* Скрываем attendees-and-spots-info на мобильных */
+  }
+}
+@media (max-width: 430px) {
+  .date-card {
+    font-size: 9px;
+    font-weight: 500;
+    line-height: 12px;
+  }
+  .title {
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 14px;
+  }
+  .category {
+    color: #707070;
+    font-family: Roboto;
+    font-size: 8.58px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 12.257px;
+  }
+  .online-event-block .online-event-text {
+    color: #707070;
+    font-size: 8px;
+    font-weight: 500;
+    line-height: 10px;
+  }
+  .online-event-block .online-event-icon {
+    width: 10px;
+    height: 10px;
+  }
+  .events-list-card img {
+    width: 98px;
+    height: 55px;
+    border-radius: 5px;
+  }
+  .events-section {
+    padding: 50px 5px 0px 5px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .events-list {
+    padding: 0 10px 0 10px;
+  }
+  .events-list-card {
+    max-width: 370px;
+    width: 100%;
+    padding-top: 4px;
+    padding-bottom: 15px;
+  }
+}
+/*-------------------------Styles-map-promo-container-------------------------*/
+/* Styles for the map promo container */
+.main-content-wrapper {
+  max-width: 1196px; /* Задаем максимальную ширину, как у основного контента */
+  margin: 20px auto; /* Центрируем по горизонтали и добавляем отступ сверху */
+  position: relative; /* ОЧЕНЬ ВАЖНО: Делает этот контейнер базой для абсолютного позиционирования */
+  padding: 0 20px; /* Добавим небольшой горизонтальный паддинг, чтобы контент не прилипал к краям */
+}
+.map-promo-container {
+  position: absolute; /* Позиционируем относительно .main-content-wrapper */
+  top: 0px; /* Или нужный отступ от верхнего края этого контейнера. */
+  right: 0px;
+  z-index: 4;
+  max-width: 350px; /* Ограничиваем ширину, чтобы соответствовало ширине карточек событий */
+  width: 100%;
+  max-height: 285px;
+  height: 100%;
+  margin-bottom: 20px; /* Отступ снизу от списка событий */
+}
+
+.map-promo-header {
+  margin-bottom: 8px; /* Отступ между заголовком и самой картой */
+  padding: 0 20px; /* Добавляем горизонтальный паддинг к заголовку */
+}
+
+.map-promo-header p {
+  color: #707070;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.map-promo-header h2 {
+  color: #212121;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+/* Styles for the map placeholder (the 'map' area) */
+.map-placeholder {
+  position: relative;
+  width: 100%; /* Ширина 100% минус паддинги по 20px с каждой стороны */
+  height: 100%; /* Фиксированная высота для 'карты', можно настроить */
+  background-color: #e0e0e0; /* Фоновый цвет на случай, если картинка не загрузится */
+  border-radius: 8px; /* Скругленные углы, как на скриншоте */
+  overflow: hidden; /* Обрезаем все, что выходит за границы */
+  margin: 0 20px; /* Горизонтальные отступы, чтобы центрировать блок внутри map-promo-container */
+
+  /* Используем фоновое изображение для карты, так как HTML предполагает, что img нет */
+  /* Если ты все же вставил <img> в HTML, то эти свойства можно убрать отсюда
+     и применить к самому <img> элементу (как мы делали в предположении ранее). */
+  background-image: url("путь/к/изображению/карты.jpg"); /* <-- ЗАМЕНИ ЭТОТ ПУТЬ */
+  background-size: cover; /* Растягивает изображение, чтобы оно покрыло всю область */
+  background-position: center; /* Центрирует фоновое изображение */
+  /* filter: blur(3px); -- УДАЛЕНО: Нет размытия */
+
+  /* Flexbox для центрирования кнопок, если они не абсолютно позиционированы,
+     но для кнопок абсолютного позиционирования это не влияет на их центрирование */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Убираем стили для псевдоэлемента ::before, если он больше не нужен */
+/* .map-placeholder::before { ... } - ЭТОТ БЛОК УДАЛЯЕТСЯ ПОЛНОСТЬЮ */
+
+/* Стили для кнопки закрытия (X) */
+.close-map-btn {
+  position: absolute; /* Позиционируем относительно .map-placeholder */
+  top: 10px; /* Отступ от верхнего края */
+  right: 10px; /* Отступ от правого края */
+  background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
+  border: none;
+  border-radius: 50%; /* Круглая кнопка */
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: #707070;
+  z-index: 10; /* Убедимся, что кнопка поверх всего */
+  /* filter: none; -- Больше не нужно, так как нет размытия родителя */
+}
+
+.close-map-btn:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+/* Стили для кнопки "Browse in map" */
+.browse-map-btn {
+  position: absolute; /* Позиционируем относительно .map-placeholder */
+  top: 50%; /* Смещаем верхний край к середине */
+  left: 50%; /* Смещаем левый край к середине */
+  transform: translate(-50%, -50%); /* Точно центрируем кнопку */
+  background-color: #fff; /* Белый фон */
+  color: #00798a; /* Цвет текста */
+  border: 1px solid #00798a; /* Обводка */
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex; /* Для выравнивания текста и иконки */
+  align-items: center;
+  gap: 8px; /* Отступ между текстом и иконкой */
+  z-index: 5; /* Убедимся, что кнопка поверх фонового изображения карты */
+  /* filter: none; -- Больше не нужно */
+}
+
+.browse-map-btn:hover {
+  background-color: #f0f0f0;
+}
+
+/* Стили для иконки внутри кнопки "Browse in map" */
+.browse-map-btn img {
+  width: 18px; /* Размер иконки */
+  height: 18px;
+  vertical-align: middle;
+  /* filter: none; -- Больше не нужно */
+}
+@media (max-width: 1080px) {
+  .map-promo-container {
+    display: none;
   }
 }

@@ -41,44 +41,63 @@
         <button class="signup-button">Sign up</button>
       </div>
     </header>
-    <section class="events-section">
-      <h1 class="events-section-title">Events near New York, NY</h1>
+    <div class="main-content-wrapper">
+      <section class="events-section">
+        <h1 class="events-section-title">Events near New York, NY</h1>
 
-      <nav class="events-tabs">
-        <a href="#" class="events-tab active">Events</a>
-      </nav>
+        <nav class="events-tabs">
+          <a href="#" class="events-tab active">Events</a>
+        </nav>
 
-      <div class="events-filters">
-        <div class="filter-dropdown">
-          <button class="dropdown-button" id="type-dropdown-button">
-            Any type <span class="arrow-down"></span>
-          </button>
-          <ul class="dropdown-content" id="type-dropdown-content">
-            <li><a href="#" data-value="all">Any type</a></li>
-          </ul>
+        <div class="events-filters">
+          <div class="filter-dropdown">
+            <button class="dropdown-button" id="type-dropdown-button">
+              Any type <span class="arrow-down"></span>
+            </button>
+            <ul class="dropdown-content" id="type-dropdown-content">
+              <li><a href="#" data-value="all">Any type</a></li>
+            </ul>
+          </div>
+
+          <div class="filter-dropdown">
+            <button class="dropdown-button" id="distance-dropdown-button">
+              Any distance <span class="arrow-down"></span>
+            </button>
+            <ul class="dropdown-content" id="distance-dropdown-content">
+              <li><a href="#" data-value="all">Any distance</a></li>
+            </ul>
+          </div>
+
+          <div class="filter-dropdown">
+            <button class="dropdown-button" id="category-dropdown-button">
+              Any category <span class="arrow-down"></span>
+            </button>
+            <ul class="dropdown-content" id="category-dropdown-content">
+              <li><a href="#" data-value="all">Any category</a></li>
+            </ul>
+          </div>
         </div>
+      </section>
 
-        <div class="filter-dropdown">
-          <button class="dropdown-button" id="distance-dropdown-button">
-            Any distance <span class="arrow-down"></span>
-          </button>
-          <ul class="dropdown-content" id="distance-dropdown-content">
-            <li><a href="#" data-value="all">Any distance</a></li>
-          </ul>
+      <section class="events-list"></section>
+
+      <section class="map-promo-container">
+        <div class="map-promo-header">
+          <p>Find events near</p>
+          <h2>New York, NY</h2>
         </div>
-
-        <div class="filter-dropdown">
-          <button class="dropdown-button" id="category-dropdown-button">
-            Any category <span class="arrow-down"></span>
+        <div class="map-placeholder">
+          <img src="./assetc/png/map-thumbnail.png.png" alt="Expand map" />
+          <button class="close-map-btn">
+            <img src="./assetc/svg/krestik-maps.svg" alt="" />
           </button>
-          <ul class="dropdown-content" id="category-dropdown-content">
-            <li><a href="#" data-value="all">Any category</a></li>
-          </ul>
+          <button class="browse-map-btn">
+            Browse in map
+            <img src="./assetc/svg/strelki-maps.svg" alt="" />
+          </button>
         </div>
-      </div>
-
-      <div class="events-list"></div>
-    </section>
+      </section>
+    </div>
     <footer>
       <div class="footer-header">
         <h4>Create your own Meetup group.</h4>
