@@ -883,6 +883,7 @@ button.language {
   flex-direction: column;
   max-width: 376px;
   width: 100%;
+  cursor: pointer;
 }
 .friendships-cards img {
   opacity: 1; /* Изначально изображение полностью непрозрачно */
