@@ -94,6 +94,10 @@ button.language {
   font-size: 14px;
   border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.signup-button:hover {
+  background-color: #009aa8; /* Немного светлее */
 }
 @media (max-width: 864px) {
   .location-input {
@@ -194,6 +198,10 @@ button.language {
   text-decoration: none;
   display: inline-block;
   text-align: center;
+  transition: background-color 0.3s ease;
+}
+.join-meetup:hover {
+  background-color: #009aa8;
 }
 .top-about {
   display: flex;
@@ -356,6 +364,43 @@ button.language {
 /*-------------------------<div class="events-cards">----------------------------*/
 .cards-info {
   padding: 12px 0 20px 0;
+}
+
+/*-------------------------<div class="events-cards">----------------------------*/
+.events-cards {
+  /* Добавляем плавный переход для фона */
+  transition: background-color 0.3s ease;
+  /* Если у карточки нет явно заданного фона, можно добавить, чтобы эффект был заметен */
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden; /* Важно, чтобы изображение внутри не выходило за скругленные края */
+  cursor: pointer;
+}
+
+.events-cards:hover {
+  background-color: white;
+}
+.events-cards img {
+  display: block;
+  height: auto;
+  opacity: 1; /* Изначально изображение полностью непрозрачно */
+  /* ОБНОВЛЕНО: Добавляем плавный переход для opacity */
+  transition: opacity 0.3s ease;
+}
+.events-cards:hover img {
+  opacity: 0.8;
+}
+.events-cards h3 {
+  /* transition: text-decoration 0.3s ease, color 0.3s ease; */
+  display: inline-block; /* Важно для border-bottom, чтобы он обрезался по тексту */
+  padding-bottom: 2px; /* Небольшой отступ от текста до подчеркивания */
+  border-bottom: 2px solid transparent; /* Изначально прозрачная, но нужной толщины */
+  line-height: 1.2;
+}
+
+.events-cards:hover h3 {
+  text-decoration: underline;
+  color: black;
 }
 .events-cards h3 {
   max-width: 235px;
@@ -538,6 +583,11 @@ button.language {
   color: white;
   text-decoration: none;
   margin: 0;
+  transition: background-color 0.3s ease;
+}
+
+.join-meetup-all a:hover {
+  background-color: rgb(223, 112, 143);
 }
 @media (max-width: 680px) {
   .join-meetup-hands {
@@ -626,6 +676,11 @@ button.language {
   max-width: 146px;
   border-radius: 8px;
   background: rgba(151, 202, 209, 0.08);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+.category-cards:hover {
+  background: rgba(151, 202, 209, 0.2);
 }
 @media (max-width: 1096px) {
   .grid-category {
@@ -680,6 +735,12 @@ button.language {
   justify-content: center;
   align-items: center;
   gap: 18px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+.popular-cards:hover {
+  transform: scale(1.05); /* Увеличиваем карточку на 2% */
 }
 .popular-cities-container h3 {
   font-size: 15px;
@@ -749,6 +810,11 @@ button.language {
   gap: 24px;
   border-radius: 8px;
   background: rgba(151, 202, 209, 0.08);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+.methods-meetup:hover {
+  background: rgba(151, 202, 209, 0.2);
 }
 .methods-meetup h3 {
   font-size: 20px;
@@ -818,11 +884,24 @@ button.language {
   max-width: 376px;
   width: 100%;
 }
+.friendships-cards img {
+  opacity: 1; /* Изначально изображение полностью непрозрачно */
+  transition: opacity 0.3s ease;
+}
+.friendships-cards img:hover {
+  opacity: 0.8;
+}
 .friendships-cards h3 {
   font-size: 18px;
   font-weight: 600;
   line-height: 28px;
   padding: 24px 64px 12px 0;
+  text-decoration: none;
+  /* Добавляем плавный переход для text-decoration и цвета */
+  transition: text-decoration 0.3s ease, color 0.3s ease;
+}
+.friendships-cards:hover h3 {
+  text-decoration: underline; /* Подчеркивание при наведении */
 }
 .friendships-cards p {
   color: #707070;
@@ -836,6 +915,11 @@ button.language {
   font-size: 16px;
   font-weight: 400;
   text-decoration: none;
+  transition: text-decoration 0.3s ease, color 0.3s ease;
+}
+.friendships-cards:hover a {
+  text-decoration: underline; /* Подчеркивание при наведении на карточку */
+  /* color: #009aa8; /* Опционально: можно изменить цвет ссылки при наведении */
 }
 @media (max-width: 1100px) {
   .friendships-container {

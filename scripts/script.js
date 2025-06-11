@@ -184,7 +184,19 @@ document.addEventListener("DOMContentLoaded", () => {
       window.open(googleMapsUrl, "_blank");
     });
   }
+  // --- 4. Интерактив для карточек Friendships are made on Meetup ---
+  const friendshipCards = document.querySelectorAll(".friendships-cards");
 
+  friendshipCards.forEach((card) => {
+    card.addEventListener("click", () => {
+      // Ищем первую ссылку <a> внутри этой карточки
+      const link = card.querySelector("a");
+      if (link) {
+        // Программно кликаем по ссылке, чтобы перейти по её адресу
+        window.location.href = link.href;
+      }
+    });
+  });
   // --- 2. Интерактив для фильтрации событий ---
 
   // Получаем ссылки на элементы DOM для фильтров
