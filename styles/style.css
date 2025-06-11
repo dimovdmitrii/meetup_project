@@ -361,40 +361,33 @@ button.language {
     width: 100%;
   }
 }
-/*-------------------------<div class="events-cards">----------------------------*/
 .cards-info {
   padding: 12px 0 20px 0;
 }
-
 /*-------------------------<div class="events-cards">----------------------------*/
 .events-cards {
-  /* Добавляем плавный переход для фона */
   transition: background-color 0.3s ease;
-  /* Если у карточки нет явно заданного фона, можно добавить, чтобы эффект был заметен */
   background-color: white;
   border-radius: 8px;
-  overflow: hidden; /* Важно, чтобы изображение внутри не выходило за скругленные края */
+  overflow: hidden;
   cursor: pointer;
 }
-
 .events-cards:hover {
   background-color: white;
 }
 .events-cards img {
   display: block;
   height: auto;
-  opacity: 1; /* Изначально изображение полностью непрозрачно */
-  /* ОБНОВЛЕНО: Добавляем плавный переход для opacity */
+  opacity: 1;
   transition: opacity 0.3s ease;
 }
 .events-cards:hover img {
   opacity: 0.8;
 }
 .events-cards h3 {
-  /* transition: text-decoration 0.3s ease, color 0.3s ease; */
-  display: inline-block; /* Важно для border-bottom, чтобы он обрезался по тексту */
-  padding-bottom: 2px; /* Небольшой отступ от текста до подчеркивания */
-  border-bottom: 2px solid transparent; /* Изначально прозрачная, но нужной толщины */
+  display: inline-block;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
   line-height: 1.2;
 }
 
@@ -537,7 +530,6 @@ button.language {
 .join-meetup-hands {
   padding: 66px 140px 0px 140px;
 }
-
 .join-meetup-all {
   display: flex;
   flex-direction: row;
@@ -740,7 +732,7 @@ button.language {
   overflow: hidden;
 }
 .popular-cards:hover {
-  transform: scale(1.05); /* Увеличиваем карточку на 2% */
+  transform: scale(1.05);
 }
 .popular-cities-container h3 {
   font-size: 15px;
@@ -886,7 +878,7 @@ button.language {
   cursor: pointer;
 }
 .friendships-cards img {
-  opacity: 1; /* Изначально изображение полностью непрозрачно */
+  opacity: 1;
   transition: opacity 0.3s ease;
 }
 .friendships-cards img:hover {
@@ -898,11 +890,11 @@ button.language {
   line-height: 28px;
   padding: 24px 64px 12px 0;
   text-decoration: none;
-  /* Добавляем плавный переход для text-decoration и цвета */
+
   transition: text-decoration 0.3s ease, color 0.3s ease;
 }
 .friendships-cards:hover h3 {
-  text-decoration: underline; /* Подчеркивание при наведении */
+  text-decoration: underline;
 }
 .friendships-cards p {
   color: #707070;
@@ -919,8 +911,7 @@ button.language {
   transition: text-decoration 0.3s ease, color 0.3s ease;
 }
 .friendships-cards:hover a {
-  text-decoration: underline; /* Подчеркивание при наведении на карточку */
-  /* color: #009aa8; /* Опционально: можно изменить цвет ссылки при наведении */
+  text-decoration: underline;
 }
 @media (max-width: 1100px) {
   .friendships-container {
@@ -988,7 +979,6 @@ footer a:hover {
   border: 2px solid #fff;
   flex-shrink: 0;
 }
-
 .footer-header a:hover {
   background-color: #f6f7f8;
   color: #212121;
@@ -1223,25 +1213,21 @@ footer a:hover {
   }
 }
 /* --------------------End-of-Section-footer-bottom---------------------- */
-/*---------------------Page-number-2--------------------------------------*/
 /*---------------------Section-events-section------------------------------*/
 .events-section {
   padding: 20px;
   max-width: 1196px;
   margin: 0 auto;
 }
-
 .events-section-title {
   font-size: 28px;
   font-weight: 600;
   color: #333;
   margin-bottom: 20px;
 }
-
 .events-tabs {
   margin-bottom: 20px;
 }
-
 .events-tab {
   display: inline-block;
   padding: 10px 0;
@@ -1251,13 +1237,11 @@ footer a:hover {
   font-weight: 600;
   position: relative;
 }
-
 .events-tab.active {
   font-size: 20px;
   font-weight: 500;
   color: #00798a;
 }
-
 .events-tab.active::after {
   content: "";
   position: absolute;
@@ -1267,19 +1251,16 @@ footer a:hover {
   height: 3px;
   background-color: #00798a;
 }
-
 .events-filters {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 30px;
 }
-
 .filter-dropdown {
   position: relative;
   display: inline-block;
 }
-
 .dropdown-button {
   background-color: #f6f7f8;
   color: #212121;
@@ -1294,11 +1275,9 @@ footer a:hover {
   gap: 5px;
   white-space: nowrap;
 }
-
 .dropdown-button:hover {
   background-color: #e0e0e0;
 }
-
 .arrow-down {
   width: 0;
   height: 0;
@@ -1307,11 +1286,9 @@ footer a:hover {
   border-top: 5px solid #333;
   transition: transform 0.3s ease;
 }
-
 .filter-dropdown.active .arrow-down {
   transform: rotate(180deg);
 }
-
 .dropdown-content {
   display: none;
   position: absolute;
@@ -1324,14 +1301,12 @@ footer a:hover {
   padding: 5px 0;
   margin-top: 5px;
 }
-
 .dropdown-content li a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
-
 .dropdown-content li a:hover {
   background-color: #f1f1f1;
 }
@@ -1370,10 +1345,6 @@ footer a:hover {
   }
 }
 /*------------------------------Section-Events-List---------------------*/
-
-/*------------------------------Section-Events-List---------------------*/
-
-/* Общие стили для контейнера списка событий */
 .events-list {
   padding: 20px;
   max-width: 1196px;
@@ -1381,51 +1352,35 @@ footer a:hover {
   display: flex;
   flex-direction: column;
 }
-
-/* Стили для каждой карточки события */
 .events-list-card {
   max-width: 604px;
   width: 100%;
   padding-top: 16px;
-  padding-bottom: 55px; /* Этот паддинг будет для всей карточки, а не только infoDiv */
+  padding-bottom: 55px;
   border-top: 1px solid #d9d9d9;
   display: flex;
   gap: 12px;
   align-items: center;
-  /* Убедитесь, что у карточек есть фон, чтобы подсветка была видна */
   background-color: #ffffff;
-  /* Добавляем плавный переход для всех свойств, которые будут меняться */
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  /* Можно добавить легкую тень по умолчанию, чтобы при наведении она усиливалась */
 }
 .events-list-card:hover {
-  /* Изменяем цвет фона на более светлый или слегка серый */
-  background-color: #f8f8f8; /* Легкая серая подсветка */
-  /* Или можно использовать легкий оттенок основного цвета сайта, если есть */
-  /* background-color: rgba(0, 121, 138, 0.05);  Пример с легким голубым оттенком */
-
-  /* Добавляем/усиливаем тень для эффекта подсветки, но без "всплытия" */
+  background-color: #f8f8f8;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  /* Если вы не хотите, чтобы карточка смещалась, не добавляйте transform: translateY() или аналогичные */
 }
-/* Стили для изображения в карточке */
 .events-list-card img {
   width: 159px;
   height: 90px;
   border-radius: 8px;
 }
-
-/* Основной информационный блок карточки */
 .list-card-info {
   display: flex;
   flex-direction: column;
-  gap: 4px; /* Отступы между элементами в колонке */
+  gap: 4px;
   align-items: start;
-  position: relative; /* Оставляем relative, если будут абсолютно позиционированные элементы */
-  height: 100%; /* Убедимся, что infoDiv занимает всю доступную высоту */
+  position: relative;
+  height: 100%;
 }
-
-/* Стили для даты */
 .date-card {
   color: #7c6f50;
   font-size: 14px;
@@ -1434,40 +1389,30 @@ footer a:hover {
   letter-spacing: -0.35px;
   text-transform: uppercase;
 }
-
-/* Стили для заголовка */
 .title {
   color: #212121;
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
 }
-
-/* Стили для категории */
 .category {
   color: #707070;
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
 }
-
-/* ----------------------------------------------------- */
-/* ПРАВИЛА ДЛЯ ДЕСКТОПНЫХ ЭКРАНОВ (>= 680px) */
-/* Online Event: Скрыт, attendees-and-spots-info: Отображается */
-/* ----------------------------------------------------- */
 @media (min-width: 680px) {
   .online-event-block {
-    display: none; /* Скрываем Online Event на десктопах */
+    display: none;
   }
-
   .attendees-and-spots-info {
-    display: block; /* Показываем attendees-and-spots-info на десктопах */
+    display: block;
     color: #707070;
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
-    margin-top: 4px; /* Отступ от предыдущего элемента (категории) */
-    position: static; /* Возвращаем в обычный поток */
+    margin-top: 4px;
+    position: static;
     bottom: auto;
     left: auto;
     width: auto;
@@ -1478,34 +1423,26 @@ footer a:hover {
     font-weight: bold;
   }
 }
-
-/* ----------------------------------------------------- */
-/* ПРАВИЛА ДЛЯ МОБИЛЬНЫХ ЭКРАНОВ (< 680px) */
-/* Online Event: Отображается под категорией, attendees-and-spots-info: Скрыт */
-/* ----------------------------------------------------- */
 @media (max-width: 679px) {
   .online-event-block {
-    display: flex; /* Показываем Online Event на мобильных */
+    display: flex;
     align-items: center;
     gap: 4px;
-    margin-top: 4px; /* Отступ от предыдущего элемента (категории) на мобильных */
+    margin-top: 4px;
   }
-
   .online-event-block .online-event-icon {
     width: 18px;
     height: 18px;
     flex-shrink: 0;
   }
-
   .online-event-block .online-event-text {
     color: #707070;
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
   }
-
   .attendees-and-spots-info {
-    display: none; /* Скрываем attendees-and-spots-info на мобильных */
+    display: none;
   }
 }
 @media (max-width: 430px) {
@@ -1558,74 +1495,57 @@ footer a:hover {
   }
 }
 /*-------------------------Styles-map-promo-container-------------------------*/
-/* Styles for the map promo container */
 .main-content-wrapper {
-  max-width: 1196px; /* Задаем максимальную ширину, как у основного контента */
-  margin: 20px auto; /* Центрируем по горизонтали и добавляем отступ сверху */
-  position: relative; /* ОЧЕНЬ ВАЖНО: Делает этот контейнер базой для абсолютного позиционирования */
-  padding: 0 20px; /* Добавим небольшой горизонтальный паддинг, чтобы контент не прилипал к краям */
+  max-width: 1196px;
+  margin: 20px auto;
+  position: relative;
+  padding: 0 20px;
 }
 .map-promo-container {
-  position: absolute; /* Позиционируем относительно .main-content-wrapper */
-  top: 0px; /* Или нужный отступ от верхнего края этого контейнера. */
+  position: absolute;
+  top: 0px;
   right: 0px;
   z-index: 4;
-  max-width: 350px; /* Ограничиваем ширину, чтобы соответствовало ширине карточек событий */
+  max-width: 350px;
   width: 100%;
   max-height: 285px;
   height: 100%;
-  margin-bottom: 20px; /* Отступ снизу от списка событий */
+  margin-bottom: 20px;
 }
-
 .map-promo-header {
-  margin-bottom: 8px; /* Отступ между заголовком и самой картой */
-  padding: 0 20px; /* Добавляем горизонтальный паддинг к заголовку */
+  margin-bottom: 8px;
+  padding: 0 20px;
 }
-
 .map-promo-header p {
   color: #707070;
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
 }
-
 .map-promo-header h2 {
   color: #212121;
   font-size: 24px;
   font-weight: 600;
   line-height: 32px;
 }
-
-/* Styles for the map placeholder (the 'map' area) */
 .map-placeholder {
   position: relative;
   width: 100%;
-  max-width: 350px; /* Убедитесь, что эта ширина сохраняется, если блок map-promo-container не используется */
-  height: 285px; /* Задайте фиксированную или относительную высоту для карты */
+  max-width: 350px;
+  height: 285px;
   background-color: #e0e0e0;
   border-radius: 8px;
   overflow: hidden;
   margin: 0 20px;
-  /* УДАЛИТЕ или закомментируйте эти строки: */
-  /* background-image: url("путь/к/изображению/карты.jpg"); */
-  /* background-size: cover; */
-  /* background-position: center; */
-
-  /* Убедитесь, что у него есть display: block или flex, чтобы он занимал место */
-  display: block; /* Или flex, если нужно центрирование контента внутри */
+  display: block;
 }
-
-/* Убираем стили для псевдоэлемента ::before, если он больше не нужен */
-/* .map-placeholder::before { ... } - ЭТОТ БЛОК УДАЛЯЕТСЯ ПОЛНОСТЬЮ */
-
-/* Стили для кнопки закрытия (X) */
 .close-map-btn {
-  position: absolute; /* Позиционируем относительно .map-placeholder */
-  top: 10px; /* Отступ от верхнего края */
-  right: 10px; /* Отступ от правого края */
-  background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
   border: none;
-  border-radius: 50%; /* Круглая кнопка */
+  border-radius: 50%;
   width: 24px;
   height: 24px;
   display: flex;
@@ -1635,45 +1555,36 @@ footer a:hover {
   font-size: 16px;
   font-weight: bold;
   color: #707070;
-  z-index: 10; /* Убедимся, что кнопка поверх всего */
-  /* filter: none; -- Больше не нужно, так как нет размытия родителя */
+  z-index: 10;
 }
-
 .close-map-btn:hover {
   background-color: rgba(255, 255, 255, 1);
 }
-
-/* Стили для кнопки "Browse in map" */
 .browse-map-btn {
-  position: absolute; /* Позиционируем относительно .map-placeholder */
-  top: 50%; /* Смещаем верхний край к середине */
-  left: 50%; /* Смещаем левый край к середине */
-  transform: translate(-50%, -50%); /* Точно центрируем кнопку */
-  background-color: #fff; /* Белый фон */
-  color: #00798a; /* Цвет текста */
-  border: 1px solid #00798a; /* Обводка */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  color: #00798a;
+  border: 1px solid #00798a;
   border-radius: 8px;
   padding: 12px 20px;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
-  display: flex; /* Для выравнивания текста и иконки */
+  display: flex;
   align-items: center;
-  gap: 8px; /* Отступ между текстом и иконкой */
-  z-index: 5; /* Убедимся, что кнопка поверх фонового изображения карты */
-  /* filter: none; -- Больше не нужно */
+  gap: 8px;
+  z-index: 5;
 }
-
 .browse-map-btn:hover {
   background-color: #f0f0f0;
 }
-
-/* Стили для иконки внутри кнопки "Browse in map" */
 .browse-map-btn img {
-  width: 18px; /* Размер иконки */
+  width: 18px;
   height: 18px;
   vertical-align: middle;
-  /* filter: none; -- Больше не нужно */
 }
 @media (max-width: 1080px) {
   .map-promo-container {
