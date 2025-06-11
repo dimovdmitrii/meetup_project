@@ -97,7 +97,7 @@ button.language {
   transition: background-color 0.3s ease;
 }
 .signup-button:hover {
-  background-color: #009aa8; /* Немного светлее */
+  background-color: #009aa8;
 }
 @media (max-width: 864px) {
   .location-input {
