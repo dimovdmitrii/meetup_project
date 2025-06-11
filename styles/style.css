@@ -161,8 +161,12 @@ button.language {
 }
 /*----------------------------------End of Header styles------------------------*/
 /*----------------------------------Main Styles: Top section About---------------*/
+.top-about {
+  position: relative;
+}
 .about-text {
   display: flex;
+
   max-width: 700px;
   min-height: 104px;
   flex-direction: column;
@@ -209,7 +213,7 @@ button.language {
   justify-content: space-between;
   max-width: 1196px;
 }
-@media (max-width: 393px) {
+@media (max-width: 425px) {
   .about-text {
     margin-left: 0;
     padding: 16px;
@@ -223,9 +227,6 @@ button.language {
     font-size: 12px;
     line-height: 25px;
     margin-bottom: 2px;
-  }
-  .join-meetup {
-    display: none;
   }
   .top-about {
     display: flex;
@@ -246,7 +247,9 @@ button.language {
     margin-top: 30px;
   }
   .join-meetup {
-    display: none;
+    position: absolute;
+    right: 5%;
+    bottom: 40%;
   }
 }
 /*---------------------------End Top- about---------------*/
@@ -322,7 +325,7 @@ button.language {
     padding-top: 25px;
   }
 }
-@media (max-width: 408px) {
+@media (max-width: 425px) {
   .events-near-title {
     font-size: 20px;
   }
@@ -353,7 +356,7 @@ button.language {
     grid-template-rows: repeat(4, auto);
   }
 }
-@media (max-width: 393px) {
+@media (max-width: 425px) {
   .events-grid {
     display: flex;
     flex-direction: column;
@@ -369,7 +372,6 @@ button.language {
   transition: background-color 0.3s ease;
   background-color: white;
   border-radius: 8px;
-  overflow: hidden;
   cursor: pointer;
 }
 .events-cards:hover {
@@ -379,6 +381,7 @@ button.language {
   display: block;
   height: auto;
   opacity: 1;
+  overflow: hidden;
   transition: opacity 0.3s ease;
 }
 .events-cards:hover img {
@@ -436,7 +439,7 @@ button.language {
   font-weight: 400;
   line-height: 20px;
 }
-@media (max-width: 393px) {
+@media (max-width: 425px) {
   .events-cards img {
     max-width: 98px;
     max-height: 55px;
@@ -448,7 +451,7 @@ button.language {
     display: flex;
     gap: 8px;
     padding-top: 10px;
-    border-top: 0.613px solid #d9d9d9;
+    border-top: 1px solid #d9d9d9;
   }
   .cards-info {
     display: none;
@@ -493,12 +496,12 @@ button.language {
     line-height: 8px;
   }
 }
-@media (min-width: 393px) {
+@media (min-width: 425px) {
   .cards-info-mob {
     display: none;
   }
 }
-@media (max-width: 393px) {
+@media (max-width: 425px) {
   .cards-info-mob {
     display: flex;
     flex-direction: column;
@@ -518,7 +521,7 @@ button.language {
     width: fit-content;
   }
 }
-@media (min-width: 394px) {
+@media (min-width: 425px) {
   .cards-info-mob {
     display: none;
   }
@@ -528,7 +531,7 @@ button.language {
 }
 /*-----------------------------------join-meetup-hands-----------------*/
 .join-meetup-hands {
-  padding: 66px 140px 0px 140px;
+  padding: 66px 90px 0px 90px;
 }
 .join-meetup-all {
   display: flex;
@@ -581,23 +584,24 @@ button.language {
 .join-meetup-all a:hover {
   background-color: rgb(223, 112, 143);
 }
-@media (max-width: 680px) {
+@media (max-width: 800px) {
   .join-meetup-hands {
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 25px;
+    padding: 0px 1px 0px 1px;
   }
 }
-@media (max-width: 393px) {
+@media (max-width: 550px) {
+  .join-meetup-all {
+    padding: 20px 10px 20px 10px;
+  }
+}
+@media (max-width: 425px) {
   .join-meetup-all {
     flex-direction: column;
     align-items: center;
     padding: 0 16px;
   }
   .join-meetup-hands {
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-top: 0px;
+    padding: 0px 35px 0px 35px;
   }
   .join-meetup-text {
     display: contents;
@@ -677,15 +681,16 @@ button.language {
 @media (max-width: 1096px) {
   .grid-category {
     grid-template-columns: repeat(4, 1fr);
+    padding: 30px 35px 20 35px;
   }
 }
 @media (max-width: 680px) {
   .grid-category {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     padding: 0px 15px 44px 15px;
   }
 }
-@media (max-width: 393px) {
+@media (max-width: 425px) {
   .grid-category {
     grid-template-columns: repeat(2, 1fr);
     padding: 0px 30px 44px 25px;
@@ -738,7 +743,7 @@ button.language {
   font-size: 15px;
   font-weight: 600;
 }
-@media (max-width: 393px) {
+@media (max-width: 425px) {
   .popular-cities-header {
     padding: 16px 0 0 20px;
   }
@@ -774,6 +779,7 @@ button.language {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, auto);
+    padding: 0 25px 55px 25px;
     gap: 20px;
   }
   .popular-cities-container img {
@@ -826,7 +832,7 @@ button.language {
   text-decoration: none;
   line-height: 24px;
 }
-@media (max-width: 393px) {
+@media (max-width: 425px) {
   .methods-meetup-container h3 {
     font-size: 12px;
     font-weight: 600;
@@ -1175,7 +1181,7 @@ footer a:hover {
     width: 100%;
   }
 }
-@media (max-width: 393px) {
+@media (max-width: 425px) {
   footer {
     font-size: 12px;
   }
@@ -1323,7 +1329,7 @@ footer a:hover {
     padding-top: 40px;
   }
 }
-@media (max-width: 430px) {
+@media (max-width: 425px) {
   .dropdown-button {
     background-color: #f6f7f8;
     color: #212121;
@@ -1445,7 +1451,7 @@ footer a:hover {
     display: none;
   }
 }
-@media (max-width: 430px) {
+@media (max-width: 425px) {
   .date-card {
     font-size: 9px;
     font-weight: 500;
