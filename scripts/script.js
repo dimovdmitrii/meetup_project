@@ -1,4 +1,3 @@
-// Твой массив данных о событиях
 const eventsStore = [
   {
     title: "INFJ Personality Type - Coffee Shop Meet & Breet",
@@ -6,7 +5,7 @@ const eventsStore = [
     date: new Date(2024, 2, 23, 15),
     image:
       "https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=1037&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D%201037w ",
-    type: "online", // 'online' или 'offline'
+    type: "online",
     category: "Hobbies and Passions",
     distance: 50,
   },
@@ -70,11 +69,6 @@ const eventsStore = [
 
 const eventsListContainer = document.querySelector(".events-list");
 
-/**
- * Форматирует объект Date в удобочитаемую строку.
- * @param {Date} date - Объект даты для форматирования.
- * @returns {string} Отформатированная строка даты.
- */
 function formatDate(date) {
   const options = {
     weekday: "short",
@@ -88,17 +82,9 @@ function formatDate(date) {
   return new Intl.DateTimeFormat("en-US", options).format(date);
 }
 
-/**
- * Создает HTML-элемент карточки события на основе предоставленных данных.
- * @param {object} eventData - Объект с данными события.
- * @returns {HTMLElement} Созданный HTML-элемент карточки.
- */
 function createEventCard(eventData) {
   const cardDiv = document.createElement("div");
-  // Класс events-list-card используется для списка событий на events.html
-  // и также может использоваться для карточек в гриде на index.html.
-  // Это позволит нам иметь один и тот же класс для карточек, но стилизовать их по-разному
-  // в зависимости от родительского контейнера (.events-list или .events-grid).
+
   cardDiv.classList.add("events-list-card");
 
   const image = document.createElement("img");
@@ -183,20 +169,6 @@ function createEventCard(eventData) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Обработчик для кнопки "Browse Map"
-  const browseMapBtn = document.querySelector(".browse-map-btn");
-  if (browseMapBtn) {
-    browseMapBtn.addEventListener("click", () => {
-      const location = "New York, NY";
-      // Исправлено: googleMapsUrl теперь формируется корректно
-      const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-        location
-      )}`;
-      window.open(googleMapsUrl, "_blank");
-    });
-  }
-
-  // Обработчики кликов для карточек дружбы
   const friendshipCards = document.querySelectorAll(".friendships-cards");
   friendshipCards.forEach((card) => {
     card.addEventListener("click", () => {
@@ -207,7 +179,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Получаем ссылки на элементы выпадающих списков
   const typeDropdownButton = document.getElementById("type-dropdown-button");
   const typeDropdownContent = document.getElementById("type-dropdown-content");
   const distanceDropdownButton = document.getElementById(
@@ -223,18 +194,13 @@ document.addEventListener("DOMContentLoaded", () => {
     "category-dropdown-content"
   );
 
-  // Текущие активные фильтры
   let currentFilters = {
     type: "all",
     distance: "all",
     category: "all",
   };
 
-  /**
-   * Заполняет выпадающие списки опциями фильтрации.
-   */
   function populateDropdowns() {
-    // Заполнение выпадающего списка "Type"
     const types = ["all", "online", "offline"];
     const typeNames = {
       all: "Any type",
@@ -254,7 +220,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // Заполнение выпадающего списка "Distance"
     const distances = ["all", "5", "10", "20", "50", "100"];
     if (distanceDropdownContent) {
       distanceDropdownContent.innerHTML = "";
@@ -270,7 +235,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // Заполнение выпадающего списка "Category"
     const categories = [
       "all",
       ...new Set(eventsStore.map((event) => event.category)),
@@ -289,23 +253,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  /**
-   * Рендерит отфильтрованные события в контейнер eventsListContainer.
-   * Применяет фильтры по типу, расстоянию и категории.
-   * ВАЖНО: Эта функция теперь просто рендерит все *отфильтрованные* события.
-   * Логика "Show More/Hide" будет применена отдельно к этим отрендеренным элементам.
-   */
   function renderFilteredEvents() {
-    let eventsToRender = eventsStore; // Начинаем с полного списка
+    let eventsToRender = eventsStore;
 
-    // Применяем фильтр по типу
     if (currentFilters.type !== "all") {
       eventsToRender = eventsToRender.filter(
         (event) => event.type === currentFilters.type
       );
     }
 
-    // Применяем фильтр по расстоянию
     if (currentFilters.distance !== "all") {
       const maxDistance = parseInt(currentFilters.distance);
       eventsToRender = eventsToRender.filter(
@@ -313,14 +269,12 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     }
 
-    // Применяем фильтр по категории
     if (currentFilters.category !== "all") {
       eventsToRender = eventsToRender.filter(
         (event) => event.category === currentFilters.category
       );
     }
 
-    // Очищаем контейнер перед добавлением новых карточек
     if (eventsListContainer) {
       eventsListContainer.innerHTML = "";
     } else {
@@ -330,11 +284,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Если нет событий, соответствующих критериям, выводим сообщение
     if (eventsToRender.length === 0) {
       eventsListContainer.innerHTML =
         '<p style="text-align: center; padding: 20px; color: #555;">No events found matching your criteria.</p>';
-      // Скрываем кнопку "Show More" если нет событий для отображения
       const showMoreButton = document.getElementById("show-more-events-list");
       if (showMoreButton) {
         showMoreButton.style.display = "none";
@@ -342,23 +294,15 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Создаем и добавляем все отфильтрованные карточки событий в контейнер
     eventsToRender.forEach((eventData) => {
       const card = createEventCard(eventData);
       eventsListContainer.appendChild(card);
     });
 
-    // После рендеринга всех карточек, применяем логику "Show More/Hide" для events.html
     setupEventsListShowMoreHide();
   }
 
-  /**
-   * Переключает видимость выпадающего списка и вращает стрелку.
-   * @param {HTMLElement} dropdownContent - Элемент с содержимым выпадающего списка.
-   * @param {HTMLElement} button - Кнопка, переключающая выпадающий список.
-   */
   function toggleDropdown(dropdownContent, button) {
-    // Закрываем все открытые выпадающие списки, кроме текущего
     document
       .querySelectorAll(".dropdown-content.show")
       .forEach((openDropdown) => {
@@ -370,12 +314,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-    // Переключаем видимость текущего выпадающего списка и вращаем стрелку
     dropdownContent.classList.toggle("show");
     button.querySelector(".arrow-down")?.classList.toggle("rotated");
   }
 
-  // Добавляем слушатели событий для кнопок выпадающих списков
   typeDropdownButton?.addEventListener("click", (event) => {
     event.stopPropagation();
     toggleDropdown(typeDropdownContent, typeDropdownButton);
@@ -389,7 +331,6 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleDropdown(categoryDropdownContent, categoryDropdownButton);
   });
 
-  // Добавляем слушатели событий для пунктов выпадающих списков (выбор фильтра)
   [
     typeDropdownContent,
     distanceDropdownContent,
@@ -421,12 +362,11 @@ document.addEventListener("DOMContentLoaded", () => {
         dropdown.classList.remove("show");
         button?.querySelector(".arrow-down")?.classList.remove("rotated");
 
-        renderFilteredEvents(); // Перерисовываем события с учетом новых фильтров
+        renderFilteredEvents();
       }
     });
   });
 
-  // Закрываем выпадающие списки при клике вне их
   document.addEventListener("click", (event) => {
     if (
       typeDropdownButton &&
@@ -460,31 +400,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Обработчик для логотипа (возврат на главную)
   const mainLogo = document.getElementById("main-logo");
   if (mainLogo) {
     mainLogo.addEventListener("click", () => {
-      // Проверяем, на какой странице мы находимся, чтобы избежать лишнего редиректа
       if (
         window.location.pathname.endsWith("/index.html") ||
         window.location.pathname.endsWith("/")
       ) {
-        // Если уже на главной или корневом пути, ничего не делаем
         return;
       }
       window.location.href = "index.html";
     });
   }
 
-  // --- ФУНКЦИЯ "SHOW MORE/HIDE" ДЛЯ events.html (СПИСОК) ---
-  /**
-   * Настраивает функциональность "Show More / Hide" для страницы events.html (список событий).
-   * Работает с элементами с классом `.events-list-card`.
-   */
   function setupEventsListShowMoreHide() {
     const container = document.getElementById("events-list-container");
     const button = document.getElementById("show-more-events-list");
-    const initialDisplayCount = 3; // Для events.html всегда показываем 3 карточки на мобильных
+    const initialDisplayCount = 3;
 
     if (!container || !button) {
       console.warn(
@@ -493,85 +425,66 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Получаем ВСЕ карточки, которые были отрендерены в контейнере
     const cards = Array.from(container.querySelectorAll(".events-list-card"));
-    let showingAll = false; // Состояние: показываем ли все карточки
+    let showingAll = false;
 
-    /**
-     * Применяет правила видимости к карточкам и кнопке на основе текущего размера экрана
-     * и состояния 'showingAll'.
-     */
     function applyVisibility() {
-      const isMobile = window.innerWidth <= 425; // Медиазапрос для мобильного
+      const isMobile = window.innerWidth <= 425;
 
-      // Если карточек меньше или равно initialDisplayCount, кнопка не нужна.
       if (cards.length <= initialDisplayCount) {
         button.style.display = "none";
         cards.forEach((card) => {
-          card.style.display = ""; // Показываем все
+          card.style.display = "";
         });
         return;
       }
 
-      // Логика для больших экранов
       if (!isMobile) {
         cards.forEach((card) => {
-          card.style.display = ""; // Показываем все
+          card.style.display = "";
         });
-        button.style.display = "none"; // Скрываем кнопку
-        showingAll = true; // Считаем, что все показано на большом экране
+        button.style.display = "none";
+        showingAll = true;
         return;
       }
 
-      // Логика для маленьких экранов (isMobile === true)
-      button.style.display = ""; // Показываем кнопку "Show More"
+      button.style.display = "";
 
       if (showingAll) {
         button.textContent = "Hide";
         cards.forEach((card) => {
-          card.style.display = ""; // Показываем все
+          card.style.display = "";
         });
       } else {
         button.textContent = "Show More";
         cards.forEach((card, index) => {
           if (index >= initialDisplayCount) {
-            card.style.display = "none"; // Скрываем остальные
+            card.style.display = "none";
           } else {
-            card.style.display = ""; // Показываем первые initialDisplayCount карточек
+            card.style.display = "";
           }
         });
       }
     }
 
-    // Добавляем слушатель события клика к кнопке
     button.addEventListener("click", (event) => {
       event.preventDefault();
       showingAll = !showingAll;
       applyVisibility();
     });
 
-    // Инициализируем видимость при первой загрузке страницы
-    // или при изменении размера окна
     applyVisibility();
   }
 
-  // --- ФУНКЦИЯ "SHOW MORE/HIDE" ДЛЯ index.html (ГРИДЫ) ---
-  /**
-   * Настраивает функциональность "Show More / Hide" для секции с карточками событий.
-   * @param {string} containerId - ID контейнера, в котором находятся карточки (.events-cards).
-   * @param {string} buttonId - ID кнопки "Show More" / "Hide".
-   * @param {number} initialDisplayCount - Количество карточек, отображаемых по умолчанию на мобильных.
-   */
   function setupGridShowMoreHide(containerId, buttonId, initialDisplayCount) {
     const container = document.getElementById(containerId);
     const button = document.getElementById(buttonId);
 
     if (!container || !button) {
-      // Если контейнер или кнопка не найдены (например, на другой странице), просто выходим
       return;
     }
 
-    const cards = Array.from(container.querySelectorAll(".events-cards")); // Здесь ищем именно .events-cards
+    const cards = Array.from(container.querySelectorAll(".events-cards"));
     let showingAll = false;
 
     function applyVisibility() {
@@ -619,19 +532,68 @@ document.addEventListener("DOMContentLoaded", () => {
       applyVisibility();
     });
 
-    // Используем `setTimeout` для grid-секций, чтобы дать возможность браузеру отрисовать
-    // содержимое до применения логики скрытия, если она нужна.
     setTimeout(applyVisibility, 0);
   }
 
-  // --- ИНИЦИАЛИЗАЦИЯ ПРИ ЗАГРУЗКЕ СТРАНИЦЫ ---
+  // Новая логика для карты
+  const interactiveMapContainer = document.getElementById(
+    "interactive-map-container"
+  );
+  const mapThumbnail = document.getElementById("map-thumbnail");
+  const leafletMapDiv = document.getElementById("leaflet-map");
+  const browseMapButton = document.getElementById("browse-map-btn");
+  const closeMapButton = document.getElementById("close-map-btn");
 
-  // Инициализация выпадающих списков и рендеринг событий (для events.html)
+  let mapInstance = null;
+
+  if (browseMapButton && mapThumbnail && leafletMapDiv && closeMapButton) {
+    browseMapButton.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      mapThumbnail.style.display = "none";
+      browseMapButton.style.display = "none";
+
+      leafletMapDiv.style.display = "block";
+      closeMapButton.style.display = "flex";
+
+      if (!mapInstance) {
+        const newYorkLat = 40.7128;
+        const newYorkLng = -74.006;
+        const zoomLevel = 13;
+
+        mapInstance = L.map("leaflet-map").setView(
+          [newYorkLat, newYorkLng],
+          zoomLevel
+        );
+
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution:
+            '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        }).addTo(mapInstance);
+
+        L.marker([newYorkLat, newYorkLng])
+          .addTo(mapInstance)
+          .bindPopup("New York, NY")
+          .openPopup();
+      }
+
+      mapInstance.invalidateSize();
+    });
+
+    closeMapButton.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      leafletMapDiv.style.display = "none";
+      closeMapButton.style.display = "none";
+
+      mapThumbnail.style.display = "block";
+      browseMapButton.style.display = "flex";
+    });
+  }
+
   populateDropdowns();
-  renderFilteredEvents(); // Эта функция теперь вызывает setupEventsListShowMoreHide()
+  renderFilteredEvents();
 
-  // Инициализация логики "Show More/Hide" для гридов (для index.html)
-  // Эти функции вызовутся только если соответствующие элементы найдены на странице.
   setupGridShowMoreHide("events-near-grid-container", "show-more-near", 3);
   setupGridShowMoreHide(
     "upcoming-events-grid-container",
@@ -639,16 +601,10 @@ document.addEventListener("DOMContentLoaded", () => {
     3
   );
 
-  // Добавляем слушатель события изменения размера окна
-  // Он будет вызывать applyVisibility для всех активных секций
   window.addEventListener("resize", () => {
-    // Перерендеринг отфильтрованных событий и повторное применение Show More/Hide для events.html
     if (document.getElementById("events-list-container")) {
-      // Только если мы на events.html
       renderFilteredEvents();
     }
-
-    // Повторное применение Show More/Hide для гридов index.html
     setupGridShowMoreHide("events-near-grid-container", "show-more-near", 3);
     setupGridShowMoreHide(
       "upcoming-events-grid-container",

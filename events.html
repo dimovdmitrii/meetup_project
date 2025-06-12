@@ -94,13 +94,28 @@
           <p>Find events near</p>
           <h2>New York, NY</h2>
         </div>
-        <!-- <div class="map-placeholder" id="map"></div> -->
-        <div class="map-placeholder">
-          <img src="./assetc/png/map-thumbnail.png.png" alt="Expand map" />
+
+        <div class="map-placeholder" id="interactive-map-container">
+          <img
+            src="./assetc/png/map-thumbnail.png.png"
+            alt="Expand map"
+            id="map-thumbnail"
+          />
+          <div
+            id="leaflet-map"
+            style="width: 100%; height: 100%; display: none"
+          ></div>
+          <button
+            class="close-map-btn"
+            id="close-map-btn"
+            style="display: none"
+          >
+            <img src="./assetc/svg/krestik-maps.svg" alt="Close map" />
+          </button>
           <button class="close-map-btn">
             <img src="./assetc/svg/krestik-maps.svg" alt="" />
           </button>
-          <button class="browse-map-btn">
+          <button class="browse-map-btn" id="browse-map-btn">
             Browse in map
             <img src="./assetc/svg/strelki-maps.svg" alt="" />
           </button>

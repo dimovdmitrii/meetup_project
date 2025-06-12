@@ -411,7 +411,6 @@ button.language {
   .events-grid {
     margin: 0 auto;
     grid-template-columns: repeat(1, 1fr);
-    /* grid-template-rows: repeat(4, auto); */
   }
 }
 @media (max-width: 425px) {
@@ -451,7 +450,6 @@ button.language {
   border-bottom: 2px solid transparent;
   line-height: 1.2;
 }
-
 .events-cards:hover h3 {
   text-decoration: underline;
   color: black;
@@ -502,6 +500,7 @@ button.language {
     margin: 0 auto;
   }
 }
+/*--------------------------Media Queries for Event Cards---------------------*/
 @media (max-width: 425px) {
   .events-cards img {
     max-width: 98px;
@@ -515,9 +514,14 @@ button.language {
     gap: 8px;
     padding-top: 10px;
     border-top: 1px solid #d9d9d9;
+    border-radius: 0px;
   }
   .cards-info {
     display: none;
+  }
+  .cards-info-mob {
+    display: flex;
+    flex-direction: column;
   }
   .date-mob {
     font-size: 9px;
@@ -558,20 +562,6 @@ button.language {
     font-weight: 500;
     line-height: 8px;
   }
-}
-@media (min-width: 425px) {
-  .cards-info-mob {
-    display: none;
-  }
-}
-@media (max-width: 425px) {
-  .cards-info-mob {
-    display: flex;
-    flex-direction: column;
-  }
-  .events-grid .events-cards:nth-child(n + 4) {
-    /* display: none; */
-  }
   .show-more-button {
     display: block;
     margin: 20px auto;
@@ -584,9 +574,12 @@ button.language {
     width: fit-content;
   }
 }
-@media (min-width: 425px) {
+@media (min-width: 426px) {
   .cards-info-mob {
     display: none;
+  }
+  .cards-info {
+    display: block;
   }
   .show-more-button {
     display: none;
@@ -1576,6 +1569,7 @@ footer a:hover {
   }
 }
 /*-------------------------Styles-map-promo-container-------------------------*/
+/*-------------------------Styles-map-promo-container-------------------------*/
 .main-content-wrapper {
   max-width: 1196px;
   margin: 20px auto;
@@ -1618,7 +1612,16 @@ footer a:hover {
   border-radius: 8px;
   overflow: hidden;
   margin: 0 20px;
+}
+#map-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
+}
+#leaflet-map {
+  width: 100%;
+  height: 100%;
 }
 .close-map-btn {
   position: absolute;
@@ -1636,10 +1639,15 @@ footer a:hover {
   font-size: 16px;
   font-weight: bold;
   color: #707070;
-  z-index: 10;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 .close-map-btn:hover {
   background-color: rgba(255, 255, 255, 1);
+}
+.close-map-btn img {
+  width: 16px;
+  height: 16px;
 }
 .browse-map-btn {
   position: absolute;
@@ -1657,7 +1665,7 @@ footer a:hover {
   display: flex;
   align-items: center;
   gap: 8px;
-  z-index: 5;
+  z-index: 50;
 }
 .browse-map-btn:hover {
   background-color: #f0f0f0;
