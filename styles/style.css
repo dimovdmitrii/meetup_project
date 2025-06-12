@@ -111,6 +111,14 @@ button.language {
     width: calc(100% - 48px);
   }
 }
+@media (max-width: 378px) {
+  .header-right {
+    gap: 8px;
+  }
+  .signup-button {
+    font-size: 12px;
+  }
+}
 @media (max-width: 293px) {
   header {
     flex-direction: column;
@@ -166,8 +174,8 @@ button.language {
 }
 .about-text {
   display: flex;
-
   max-width: 700px;
+  width: 100%;
   min-height: 104px;
   flex-direction: column;
   justify-content: center;
@@ -213,6 +221,7 @@ button.language {
   justify-content: space-between;
   max-width: 1196px;
 }
+
 @media (max-width: 425px) {
   .about-text {
     margin-left: 0;
@@ -221,11 +230,10 @@ button.language {
   .about-text h1 {
     font-size: 25px;
     font-weight: 700;
-    line-height: 30px;
   }
   .about-text p {
     font-size: 12px;
-    line-height: 25px;
+    line-height: 15px;
     margin-bottom: 2px;
   }
   .top-about {
@@ -235,11 +243,16 @@ button.language {
   .top-image img {
     width: 215px;
   }
+  .join-meetup {
+    position: absolute;
+    font-size: 12px;
+    padding: 8px 10px;
+  }
 }
 @media (max-width: 680px) {
   .about-text {
     margin-left: 0;
-    padding: 16px;
+    padding: 15px 15px 0 15px;
   }
   .top-about {
     display: flex;
@@ -248,8 +261,46 @@ button.language {
   }
   .join-meetup {
     position: absolute;
-    right: 5%;
-    bottom: 40%;
+    left: 5%;
+    bottom: 45%;
+  }
+}
+@media (max-width: 425px) {
+  .about-text {
+    margin-left: 0;
+    padding: 16px;
+  }
+  .about-text h1 {
+    font-size: 25px;
+    font-weight: 700;
+  }
+  .about-text p {
+    font-size: 12px;
+    line-height: 15px;
+    margin-bottom: 2px;
+  }
+  .top-about {
+    display: flex;
+    flex-direction: column;
+  }
+  .top-image img {
+    width: 215px;
+  }
+  .join-meetup {
+    position: absolute;
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+}
+@media (max-width: 362px) {
+  .about-text {
+    padding: 0px 5px 0 15px;
+  }
+  .about-text h1 {
+    margin-bottom: 4px;
+  }
+  .about-text p {
+    margin-bottom: 0px;
   }
 }
 /*---------------------------End Top- about---------------*/
@@ -356,6 +407,13 @@ button.language {
     grid-template-rows: repeat(4, auto);
   }
 }
+@media (max-width: 585px) {
+  .events-grid {
+    margin: 0 auto;
+    grid-template-columns: repeat(1, 1fr);
+    /* grid-template-rows: repeat(4, auto); */
+  }
+}
 @media (max-width: 425px) {
   .events-grid {
     display: flex;
@@ -438,6 +496,11 @@ button.language {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
+}
+@media (max-width: 585px) {
+  .events-cards {
+    margin: 0 auto;
+  }
 }
 @media (max-width: 425px) {
   .events-cards img {
@@ -587,6 +650,9 @@ button.language {
 @media (max-width: 800px) {
   .join-meetup-hands {
     padding: 0px 1px 0px 1px;
+  }
+  .join-meetup-all img {
+    width: 260px;
   }
 }
 @media (max-width: 550px) {
@@ -786,6 +852,9 @@ button.language {
     max-width: 153px;
     max-height: 153px;
   }
+  .popular-cities-header {
+    padding-left: 50px;
+  }
 }
 /*----------------------------End of Popular cities Section-----------------------*/
 /*----------------------------How Meetup works Section-----------------------------*/
@@ -803,6 +872,7 @@ button.language {
 .methods-meetup {
   display: flex;
   max-width: 580px;
+  width: 100%;
   padding: 32px 112px 24px 24px;
   align-items: flex-start;
   gap: 24px;
@@ -858,6 +928,9 @@ button.language {
 @media (max-width: 690px) {
   .methods-meetup-container {
     padding: 0px 15px 44px 15px;
+  }
+  .methods-meetup {
+    padding: 32px 24px 24px 24px;
   }
 }
 @media (max-width: 1100px) {
@@ -922,6 +995,8 @@ button.language {
 @media (max-width: 1100px) {
   .friendships-container {
     flex-wrap: wrap;
+    padding: 0 70px 124px 70px;
+    justify-content: center;
   }
   .friendships-cards p {
   }
